@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TwitterCopyApp</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <ul>
+        <li><img src="http://1.bp.blogspot.com/-TCt0mfD4bqQ/Vycehcr_tDI/AAAAAAAA6VA/0XsMlRl_PUAg5C-zFTlVyTyM3pmeLlSgQCLcB/s800/tegami_bird.png" alt="" width="30px" height="30px"></li>
+        <li>ぶろぐ</li>
+      </ul>
+    </header>
+
+    <%= yield %>
+
+    <footer>ryota_k</footer>
+  </body>
+</html>
