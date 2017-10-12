@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
+  before_action :current_user, only: [:new, :edit, :show, :destroy]
 
   def top
   end
@@ -47,6 +48,12 @@ class BoardsController < ApplicationController
 
   def set_board
     @board = Board.find(params[:id])
+  end
+
+  def current_user
+    if !User.find(session[:user_id])
+      redirect_to new_session_path, notice: "ログインしてください"
+    end
   end
 
 end
