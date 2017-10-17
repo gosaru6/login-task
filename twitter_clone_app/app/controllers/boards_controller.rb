@@ -24,7 +24,7 @@ class BoardsController < ApplicationController
   end
 
   def show
-    #@favorite = current_user.favorites.find_by(board_id: @board.id)
+    @favorite = current_user.favorites.find_by(board_id: @board.id)
   end
 
   def update
@@ -40,13 +40,20 @@ class BoardsController < ApplicationController
     redirect_to boards_path, notice: "けしました"
   end
 
+  def favorite
+    #@favorite = current_user.favorites.find_by(board_id: params[:board_id])
+  end
+
   private
   def board_params
     params.require(:board).permit(:content, :created_at)
   end
 
   def set_board
-    @board = Board.find(params[:id])
+    @board = Board.find_by_id(params[:id])
+    unless @board then
+      redirect_to root_path
+    end
   end
 
   def current_user_check
