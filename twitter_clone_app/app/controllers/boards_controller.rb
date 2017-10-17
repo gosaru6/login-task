@@ -50,10 +50,7 @@ class BoardsController < ApplicationController
   end
 
   def set_board
-    @board = Board.find_by_id(params[:id])
-    unless @board then
-      redirect_to root_path
-    end
+    @board = Board.find(params[:id])
   end
 
   def current_user_check
