@@ -41,7 +41,7 @@ class BoardsController < ApplicationController
   end
 
   def favorite
-    #@favorite = current_user.favorites.find_by(board_id: params[:board_id])
+    @favorites = current_user.favorite_boards
   end
 
   private

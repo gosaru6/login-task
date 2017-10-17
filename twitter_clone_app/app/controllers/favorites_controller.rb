@@ -2,6 +2,7 @@ class FavoritesController < ApplicationController
 
   def create
     favorite = current_user.favorites.create(board_id: params[:board_id])
+    @favorites = favorite
     redirect_to boards_url, notice: "#{favorite.board.user.name}さんのブログをお気に入り登録しました"
   end
 
